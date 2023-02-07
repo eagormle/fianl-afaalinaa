@@ -1,0 +1,51 @@
+.button{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    color: black;
+    align-items: left;
+    white-space: 10px;
+    display: flexbox;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.search{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    color: black;
+    align-items: left;
+    white-space: 10px;
+    display: flexbox;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.DeleteItem{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    color: black;
+    align-items: left;
+    white-space: 10px;
+    display: flexbox;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.OrderType{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    color: black;
+    align-items: left;
+    white-space: 10px;
+    display: flexbox;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 15px;
+}

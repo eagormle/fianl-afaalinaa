@@ -1,0 +1,43 @@
+{
+  "name": "UI",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack serve --port 3000",
+    "regen": "cross-env api/regen.sh"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.7",
+    "@mui/styled-engine-sc": "^5.11.0",
+    "@mui/x-data-grid": "^5.17.21",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dotenv": "^0.1.3",
+    "react-query": "^3.39.3",
+    "react-router": "^6.8.0",
+    "react-router-dom": "^6.8.0",
+    "styled-components": "^5.3.6",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^1.0.13-4.3.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "cross-env": "^6.0.3",
+    "typescript": "^4.9.4"
+  }
+}

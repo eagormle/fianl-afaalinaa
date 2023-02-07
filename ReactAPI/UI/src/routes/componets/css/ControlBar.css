@@ -1,0 +1,13 @@
+.ControlBar{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    color: black;
+    align-items: left;
+    white-space: 10px;
+    display: flexbox;
+    border-bottom: 1px solid black;
+    padding-bottom: 0px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
