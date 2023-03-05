@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\egromley\\Desktop\\Playground2\\RedCloor\\RedCloor.csproj": {}
+    "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj": {}
   },
   "projects": {
-    "C:\\Users\\egromley\\Desktop\\Playground2\\RedCloor\\RedCloor.csproj": {
+    "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\egromley\\Desktop\\Playground2\\RedCloor\\RedCloor.csproj",
+        "projectUniqueName": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj",
         "projectName": "RedCloor",
-        "projectPath": "C:\\Users\\egromley\\Desktop\\Playground2\\RedCloor\\RedCloor.csproj",
-        "packagesPath": "C:\\Users\\egromley\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\egromley\\Desktop\\Playground2\\RedCloor\\obj\\",
+        "projectPath": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj",
+        "packagesPath": "/Users/ethangormley/.nuget/packages/",
+        "outputPath": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\egromley\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ethangormley/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }
