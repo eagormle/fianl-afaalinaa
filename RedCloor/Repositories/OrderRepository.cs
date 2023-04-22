@@ -47,7 +47,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         return result;
     }
     
-    public void DeleteOrder(int Id)
+    public void DeleteOrder(Guid Id)
     {
         Order existing = GetById(Id);
         if (existing == null)
@@ -65,7 +65,7 @@ public class OrderRepository : GenericRepository<Order>, IOrderRepository
         
     }
 
-    public GetOrder UpdateOrder(int Id, UpdateOrder updateOrder)
+    public GetOrder UpdateOrder(Guid Id, UpdateOrder updateOrder)
     {
         Order update = GetById(Id);
 

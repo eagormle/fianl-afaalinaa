@@ -8,7 +8,7 @@ public interface IOrderRepository : IGenericRepository<Order>
 
     List<GetOrder> GetOrder(OrderFilter getOrder);
 
-    void DeleteOrder(int Id);
+    void DeleteOrder(Guid Id);
 
-    GetOrder UpdateOrder(int Id, UpdateOrder updateOrder);
+    GetOrder UpdateOrder(Guid Id, UpdateOrder updateOrder);
 }

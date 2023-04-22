@@ -24,9 +24,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         return _context.Set<T>().ToList();
     }
-    public T GetById(int id)
+    public T GetById(Guid Id)
     {
-        return _context.Set<T>().Find(id);
+        return _context.Set<T>().Find(Id);
     }
     public void Remove(T entity)
     {

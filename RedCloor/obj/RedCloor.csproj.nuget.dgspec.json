@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj": {}
+    "E:\\Class Work\\Cit555-final\\fianl-afaalinaa\\RedCloor\\RedCloor.csproj": {}
   },
   "projects": {
-    "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj": {
+    "E:\\Class Work\\Cit555-final\\fianl-afaalinaa\\RedCloor\\RedCloor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj",
+        "projectUniqueName": "E:\\Class Work\\Cit555-final\\fianl-afaalinaa\\RedCloor\\RedCloor.csproj",
         "projectName": "RedCloor",
-        "projectPath": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/RedCloor.csproj",
-        "packagesPath": "/Users/ethangormley/.nuget/packages/",
-        "outputPath": "/Users/ethangormley/Desktop/packCalc/CRUD/fianl-afaalinaa/RedCloor/obj/",
+        "projectPath": "E:\\Class Work\\Cit555-final\\fianl-afaalinaa\\RedCloor\\RedCloor.csproj",
+        "packagesPath": "C:\\Users\\EyeBa\\.nuget\\packages\\",
+        "outputPath": "E:\\Class Work\\Cit555-final\\fianl-afaalinaa\\RedCloor\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/ethangormley/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\EyeBa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -80,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

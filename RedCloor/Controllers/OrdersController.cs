@@ -28,15 +28,15 @@ namespace RedCloor.Controllers
             return _orderRepository.GetOrder(getOrder);
         }
 
-        [HttpDelete("{Id}")]
-        public IActionResult DeleteOrder([FromRoute] int Id)
+        [HttpDelete("{GuId}")]
+        public IActionResult DeleteOrder([FromRoute] Guid Id)
         {
             _orderRepository.DeleteOrder(Id);
             return Ok();
         }
 
-        [HttpPut("{Id}")]
-        public GetOrder UpdateOrder([FromRoute] int Id, [FromBody] UpdateOrder updateOrder)
+        [HttpPut("{Guid}")]
+        public GetOrder UpdateOrder([FromRoute] Guid Id, [FromBody] UpdateOrder updateOrder)
         {
             return _orderRepository.UpdateOrder(Id, updateOrder);
         }
