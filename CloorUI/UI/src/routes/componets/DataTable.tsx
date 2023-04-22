@@ -6,6 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Close";
+import { OrderType } from "../../../api/src/models/OrderType";
 import PropTypes from "prop-types";
 import "./css/table.css";
 import "./css/ControlBar.css";
@@ -31,7 +32,7 @@ import {
 } from "@mui/x-data-grid-generator";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { call } from "../../../api/callWrapper";
-import { GetOrder, OrdersApi } from "../../../api/src";
+import { GetOrder, OrdersApi, CreateOrder  } from "../../../api/src";
 
 type OrderInfo = {
   isNew: boolean;
@@ -103,18 +104,19 @@ const DataTable = () => {
 
     const newRecord = () => {
       const id = randomId();
+      const currentDate = new Date();
+      const formattedDate = currentDate.toISOString().replace('T', ' ').replace(/\.\d{3}Z/, '');
       setRows((oldRows) => [
         ...oldRows,
         {
           id,
           OrderType: "",
           customerName: "",
-          date: "",
+          formattedDate,
           createdbyUser: "",
           isNew: true,
         },
       ]);
-      console.log("cereated soemthign");
       setRowModesModel((oldModel) => ({
         ...oldModel,
         [id]: { mode: GridRowModes.Edit, fieldToFocus: "orderType" },
@@ -273,16 +275,6 @@ const DataTable = () => {
 
   const [selectionModel, setSelectionModel] = React.useState<any[]>([]);
 
-  // function DeleteOrder() {
-  //   console.log(selectionModel);
-  //   const promises = selectionModel.map(function (value) {
-  //     return fetch(`https://localhost:7274/api/Order/` + value, {
-  //       method: "DELETE",
-  //     });
-  //   });
-  //   Promise.all(promises).then(() => queryClient.invalidateQueries("orders"));
-  // }
-
   const {mutate: deleteOrder } = useMutation(
     async () => {
       for (let i = 0; i < selectionModel.length; i++) {
@@ -296,6 +288,30 @@ const DataTable = () => {
       }
     }
   )
+
+  interface OrdersPostRequest {
+    orderType: OrderType;
+    customerName: string;
+    createdbyUserName: string;
+  }
+
+  const { mutate: addOrder } = useMutation(
+    async () => {
+      const currentDate = new Date();
+      const orderType = OrderType.NUMBER_0;
+      await call(OrdersApi).ordersPost({
+        orderType,
+        customerName: "",
+        createdbyUserName: "",
+      });
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("orders");
+      },
+    }
+  );
+  
 
   return (
     <Box
