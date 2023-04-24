@@ -32,7 +32,7 @@ import {
 } from "@mui/x-data-grid-generator";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import { call } from "../../../api/callWrapper";
-import { GetOrder, OrdersApi, CreateOrder  } from "../../../api/src";
+import { GetOrder, OrdersApi, CreateOrder } from "../../../api/src";
 
 type OrderInfo = {
   isNew: boolean;
@@ -65,32 +65,24 @@ const DataTable = () => {
   const {} = useQuery(
     ["orders"],
     async () => {
-      const result = await call(OrdersApi).ordersFilteredPost({orderFilter: {}});
-      setRows(result.map((o) => ({
-        id: o.id,
-        orderType: o.orderType,
-        customerName: o.customerName,
-        date: o.date,
-        createdbyUser: o.createdbyUser,
-        isNew: false
-      })))
+      const result = await call(OrdersApi).ordersFilteredPost({
+        orderFilter: {},
+      });
+      setRows(
+        result.map((o) => ({
+          id: o.id,
+          orderType: o.orderType,
+          customerName: o.customerName,
+          date: o.date,
+          createdbyUser: o.createdbyUser,
+          isNew: false,
+        }))
+      );
     },
     {
       refetchOnWindowFocus: false,
     }
-  )
-
-  //   const initalRows: GridRowsProp = [
-
-  //     {
-  //       id: randomId(),
-  //       orderType: tableData,
-  //       customerName: tableData,
-  //       date: tableData,
-  //       createdbyUser: tableData.map,
-  //     },
-  //   ];
-  console.log("Created inital table");
+  );
 
   interface EditToolbarProps {
     setRows: (newRows: (oldRows: GridRowsProp) => GridRowsProp) => void;
@@ -103,29 +95,44 @@ const DataTable = () => {
     const { setRows, setRowModesModel } = props;
 
     const newRecord = () => {
-      const id = randomId();
-      const currentDate = new Date();
-      const formattedDate = currentDate.toISOString().replace('T', ' ').replace(/\.\d{3}Z/, '');
-      setRows((oldRows) => [
-        ...oldRows,
-        {
-          id,
-          OrderType: "",
-          customerName: "",
-          formattedDate,
-          createdbyUser: "",
-          isNew: true,
-        },
-      ]);
+      const newOrder = {
+        orderType: "",
+        customerName: "",
+        createdbyUser: "",
+        // isNew: true,
+      };
+
+      setRows((oldRows) => [...oldRows, newOrder]);
       setRowModesModel((oldModel) => ({
         ...oldModel,
-        [id]: { mode: GridRowModes.Edit, fieldToFocus: "orderType" },
       }));
+      addOrder(newOrder);
     };
+
+    const { mutate: addOrder } = useMutation(
+      async (newOrder) => {
+        await call(OrdersApi).ordersPost({
+          createOrder: {
+            orderType: newOrder.orderType,
+            customerName: newOrder.customerName,
+            createdByUserName: newOrder.createdByUsername,
+          },
+        });
+      },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries("orders");
+        },
+      }
+    );
 
     return (
       <GridToolbarContainer>
-        <Button color="primary" startIcon={<AddIcon />} onClick={newRecord}>
+        <Button
+          color="primary"
+          startIcon={<AddIcon />}
+          onClick={() => newRecord()}
+        >
           Add record
         </Button>
         <Button
@@ -171,7 +178,7 @@ const DataTable = () => {
     });
     setRows(rows.filter((row) => row.id !== id));
   };
-// jffjfjfjfj
+  // jffjfjfjfj
   const handleCancelClick = (id: GridRowId) => () => {
     setRowModesModel({
       ...rowModesModel,
@@ -275,43 +282,19 @@ const DataTable = () => {
 
   const [selectionModel, setSelectionModel] = React.useState<any[]>([]);
 
-  const {mutate: deleteOrder } = useMutation(
+  const { mutate: deleteOrder } = useMutation(
     async () => {
       for (let i = 0; i < selectionModel.length; i++) {
-        await call(OrdersApi).ordersIdDelete({id: selectionModel[i]});
+        await call(OrdersApi).ordersIdDelete({ id: selectionModel[i] });
       }
     },
     {
       onSuccess: () => {
         queryClient.invalidateQueries("orders");
-        setSelectionModel([])
-      }
-    }
-  )
-
-  interface OrdersPostRequest {
-    orderType: OrderType;
-    customerName: string;
-    createdbyUserName: string;
-  }
-
-  const { mutate: addOrder } = useMutation(
-    async () => {
-      const currentDate = new Date();
-      const orderType = OrderType.NUMBER_0;
-      await call(OrdersApi).ordersPost({
-        orderType,
-        customerName: "",
-        createdbyUserName: "",
-      });
-    },
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries("orders");
+        setSelectionModel([]);
       },
     }
   );
-  
 
   return (
     <Box
